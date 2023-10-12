@@ -42,7 +42,7 @@ X_test_kbest = selector.transform(X_test)
 
 def train_and_evaluate(X_train, y_train, X_test, y_test):
     # Train decision tree with entropy as criterion
-    clf = DecisionTreeClassifier(criterion='entropy', random_state=42)
+    clf = DecisionTreeClassifier(criterion='gini', random_state=42)
     clf.fit(X_train, y_train)
 
     # Predict on test data

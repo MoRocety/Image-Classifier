@@ -9,6 +9,8 @@ data = pd.read_csv('C:\\Users\\shahb\\Documents\\Machine Learning\\task1\\datase
 # Create a StratifiedShuffleSplit object
 sss = StratifiedShuffleSplit(n_splits=1, test_size=0.2, random_state=42)
 
+print(sss)
+
 # Perform the split
 for train_index, test_index in sss.split(data, data['Name']):
     strat_train_set = data.loc[train_index]
