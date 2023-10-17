@@ -9,7 +9,6 @@ data = pd.read_csv('C:\\Users\\shahb\\Documents\\Machine Learning\\task1\\datase
 # Create a StratifiedShuffleSplit object
 sss = StratifiedShuffleSplit(n_splits=1, test_size=0.2, random_state=42)
 
-print(sss)
 
 # Perform the split
 for train_index, test_index in sss.split(data, data['Name']):
@@ -26,12 +25,12 @@ def image_to_feature_vector(image_path):
 strat_train_set['Image_Features'] = strat_train_set['Image Paths'].apply(image_to_feature_vector)
 strat_test_set['Image_Features'] = strat_test_set['Image Paths'].apply(image_to_feature_vector)
 
-for i in strat_test_set["Image_Features"]:
+"""for i in strat_test_set["Image_Features"]:
     print(i)
 
 for i in strat_train_set["Image_Features"]:
     print(i)
-
+"""
 # Save the train and test sets to CSV without image features
 strat_train_set.to_csv('C:\\Users\\shahb\\Documents\\Machine Learning\\task1\\stratified_train_set.csv', index=False)
 strat_test_set.to_csv('C:\\Users\\shahb\\Documents\\Machine Learning\\task1\\stratified_test_set.csv', index=False)
