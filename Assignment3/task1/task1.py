@@ -122,13 +122,13 @@ print("R-squared:", r2_lasso)
 print("Mean Squared Error:", mse_lasso)
 
 # Step 5: Save the best model as pickle dump
-with open('ridge_model.pkl', 'wb') as model_file:
+with open('Assignment3\\task1\\ridge_model.pkl', 'wb') as model_file:
     pickle.dump(ridge_model, model_file)
 
-with open('elastic_net_model.pkl', 'wb') as model_file:
+with open('Assignment3\\task1\\elastic_net_model.pkl', 'wb') as model_file:
     pickle.dump(elastic_net_model, model_file)
 
-with open('lasso_model.pkl', 'wb') as model_file:
+with open('Assignment3\\task1\\lasso_model.pkl', 'wb') as model_file:
     pickle.dump(lasso_model, model_file)
 
 # Select the best model based on the evaluation metric
@@ -156,5 +156,5 @@ print("R-squared:", r2_best_model)
 print("Mean Squared Error:", mse_best_model)
 
 # Save the best model as a pickle dump
-with open('best_model.pkl', 'wb') as model_file:
+with open('Assignment3\\task1\\best_model.pkl', 'wb') as model_file:
     pickle.dump(best_model, model_file)
