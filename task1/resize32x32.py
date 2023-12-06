@@ -1,6 +1,5 @@
 import os
 from PIL import Image
-
 def resize_images(input_folder, target_width, target_height):
     for filename in os.listdir(input_folder):
         input_path = os.path.join(input_folder, filename)
