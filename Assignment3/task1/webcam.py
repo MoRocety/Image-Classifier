@@ -4,10 +4,11 @@ import numpy as np
 
 # Load the models
 model1 = joblib.load('Assignment3\\task1\\best_model.pkl')
-model2 = joblib.load('Assignment3\\task1\\sgd_regression_model.pkl')
-model3 = joblib.load('Assignment3\\task1\\elastic_net_model.pkl')
-model4 = joblib.load('Assignment3\\task1\\ridge_model.pkl')
-model5 = joblib.load('Assignment3\\task1\\sgd_regression_optimal_model.pkl')
+model2 = joblib.load('Assignment3\\task1\\elastic_net_model.pkl')
+model3 = joblib.load('Assignment3\\task1\\ridge_model.pkl')
+model4 = joblib.load('Assignment3\\task1\\sgd_regression_optimal_model.pkl')
+model5 = joblib.load('Assignment3\\task1\\sgd_regression_model.pkl')
+model6 = joblib.load('Assignment2\\linear_regression_model.pkl')
 
 # Open the webcam
 cap = cv2.VideoCapture(0)  # 0 is the default webcam index
@@ -30,16 +31,18 @@ while True:
     prediction3 = model3.predict(flattened_frame)
     prediction4 = model4.predict(flattened_frame)
     prediction5 = model5.predict(flattened_frame)
+    prediction6 = model6.predict(flattened_frame)
 
     # Resize the frame for display
     frame = cv2.resize(frame, (640, 480))  # Adjust the dimensions as needed
 
     # Display the predictions on the frame
     cv2.putText(frame, f'Best Model- Lasso: {prediction1[0]:.2f}', (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
-    cv2.putText(frame, f'SGD: {prediction2[0]:.2f}', (10, 70), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
-    cv2.putText(frame, f'Elastic Net: {prediction3[0]:.2f}', (10, 110), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
-    cv2.putText(frame, f'Ridge: {prediction4[0]:.2f}', (10, 150), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
-    cv2.putText(frame, f'SGD Optimal: {prediction5[0]:.2f}', (10, 190), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
+    cv2.putText(frame, f'Elastic Net: {prediction2[0]:.2f}', (10, 110), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
+    cv2.putText(frame, f'Ridge: {prediction3[0]:.2f}', (10, 150), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
+    cv2.putText(frame, f'SGD Optimal: {prediction4[0]:.2f}', (10, 190), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
+    cv2.putText(frame, f'SGD Regular: {prediction5[0]:.2f}', (10, 230), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
+    cv2.putText(frame, f'Linear Regression: {prediction6[0]:.2f}', (10, 270), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
 
     cv2.imshow('Age Prediction', frame)
 
