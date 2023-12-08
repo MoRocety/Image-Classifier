@@ -5,7 +5,7 @@ import pickle
 from flatten import *
 
 # Load the saved OLS Linear Regression model from task1
-with open('linear_regression_model.pkl', 'rb') as model_file:
+with open('Assignment2\\linear_regression_model.pkl', 'rb') as model_file:
     ols_model = pickle.load(model_file)
 
 # Extract features and labels for training and testing
@@ -31,7 +31,7 @@ sgd_model = SGDRegressor(random_state=300)
 sgd_model.fit(X_train, y_train)
 
 # Save the trained SGD model to a file
-with open('sgd_regression_model.pkl', 'wb') as model_file:
+with open('Assignment2\\sgd_regression_model.pkl', 'wb') as model_file:
     pickle.dump(sgd_model, model_file)
 
 # Get predictions using the trained model for testing split

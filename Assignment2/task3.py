@@ -2,8 +2,8 @@ import joblib
 import cv2
 
 # Load the models
-model1 = joblib.load('Assignment2\linear_regression_model.pkl')
-model2 = joblib.load('Assignment2\sgd_regression_model.pkl')
+model1 = joblib.load('Assignment2\\linear_regression_model.pkl')
+model2 = joblib.load('Assignment2\\sgd_regression_model.pkl')
 
 # Open the webcam
 cap = cv2.VideoCapture(0)  # 0 is the default webcam index

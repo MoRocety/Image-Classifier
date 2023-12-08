@@ -1,16 +1,13 @@
 import numpy as np
-from sklearn.linear_model import LinearRegression, SGDRegressor, RidgeCV, ElasticNetCV, LassoCV
+from sklearn.linear_model import SGDRegressor, RidgeCV, ElasticNetCV, LassoCV
 from sklearn.linear_model import Ridge, ElasticNet, Lasso
 from sklearn.metrics import r2_score, mean_squared_error
 from sklearn.model_selection import GridSearchCV, KFold
-from sklearn.model_selection import cross_val_score
 import pickle
 from sklearn.exceptions import ConvergenceWarning
 import warnings
 from flatten import *
 from A2_task2 import *
-
-print("\nAssignment 3 task 1 \n")
 
 # Extract features and labels for training and testing
 X_train = np.vstack(strat_train_set['Image_Features'].values)
@@ -56,7 +53,7 @@ print("R-squared (Optimal vs Previous):", r2_sgd_optimal, "vs", r2_sgd)
 print("Mean Squared Error (Optimal vs Previous):", mse_sgd_optimal, "vs", mse_sgd)
 
 # Save the best model as pickle dump
-with open('sgd_regression_optimal_model.pkl', 'wb') as model_file:
+with open('Assignment3\\task1\\sgd_regression_optimal_model.pkl', 'wb') as model_file:
     pickle.dump(sgd_model_optimal, model_file)
 
 # Step 3: Cross-Validation for RidgeCV, ElasticNetCV, and LassoCV
@@ -121,6 +118,19 @@ print("\nPerformance Metrics for Lasso:")
 print("R-squared:", r2_lasso)
 print("Mean Squared Error:", mse_lasso)
 
+print("\nPerformance Metrics for SGD Linear Regressor:")
+print("R-squared:", r2_sgd)
+print("Mean Squared Error:", mse_sgd)
+
+print("\nPerformance Metrics for Optimal SGD Linear Regressor:")
+print("R-squared:", r2_sgd_optimal)
+print("Mean Squared Error:", mse_sgd_optimal)
+
+print("\nPerformance Metrics for OLS Linear Regression:")
+print("R-squared:", r2_ols)
+print("Mean Squared Error:", mse_ols)
+
+
 # Step 5: Save the best model as pickle dump
 with open('Assignment3\\task1\\ridge_model.pkl', 'wb') as model_file:
     pickle.dump(ridge_model, model_file)
@@ -131,11 +141,23 @@ with open('Assignment3\\task1\\elastic_net_model.pkl', 'wb') as model_file:
 with open('Assignment3\\task1\\lasso_model.pkl', 'wb') as model_file:
     pickle.dump(lasso_model, model_file)
 
+with open('Assignment3\\task1\\sgd_regression_model.pkl', 'wb') as model_file:
+    pickle.dump(sgd_model, model_file)
+
+with open('Assignment3\\task1\\sgd_regression_optimal_model.pkl', 'wb') as model_file:
+    pickle.dump(sgd_model_optimal, model_file)
+
+with open('Assignment2\\linear_regression_optimal_model.pkl', 'wb') as model_file:
+    pickle.dump(ols_model, model_file)
+
 # Select the best model based on the evaluation metric
 models = [
     ('Ridge', ridge_model, mse_ridge),
     ('ElasticNet', elastic_net_model, mse_elastic_net),
-    ('Lasso', lasso_model, mse_lasso)
+    ('Lasso', lasso_model, mse_lasso),
+    ('SGD', sgd_model, mse_sgd),
+    ('SGD Optimal', sgd_model_optimal, mse_sgd),
+    ('OLS', ols_model, mse_ols)
 ]
 
 best_model = min(models, key=lambda x: x[2])[1]

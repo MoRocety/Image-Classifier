@@ -21,7 +21,7 @@ print("Learned coefficients (weights):", model.coef_)
 print("Intercept term:", model.intercept_)
 
 # Save the trained model to a file
-with open('linear_regression_model.pkl', 'wb') as model_file:
+with open('Assignment2\\linear_regression_model.pkl', 'wb') as model_file:
     pickle.dump(model, model_file)
 
 # Get predictions using the trained model for the testing split
