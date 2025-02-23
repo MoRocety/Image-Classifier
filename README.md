@@ -5,7 +5,6 @@ This repository contains various Python scripts for image classification and fea
 ## Table of Contents
 
 - [Setup Instructions](#setup-instructions)
-- [Usage Examples](#usage-examples)
 - [Tasks and Models](#tasks-and-models)
   - [Assignment 2](#assignment-2)
     - [Task 1](#task-1)
@@ -14,7 +13,7 @@ This repository contains various Python scripts for image classification and fea
   - [Assignment 3](#assignment-3)
     - [Task 1](#task-1-1)
     - [Task 2](#task-2)
-- [Datasets and Models](#datasets-and-models)
+- [Models](#models)
 
 ## Setup Instructions
 
@@ -34,41 +33,6 @@ This repository contains various Python scripts for image classification and fea
    ```bash
    pip install -r requirements.txt
    ```
-
-## Usage Examples
-
-### Running the Scripts
-
-To run the various scripts in the repository, use the following commands:
-
-- Assignment 2 Task 1:
-  ```bash
-  python Assignment2/task1.py
-  ```
-
-- Assignment 2 Task 2:
-  ```bash
-  python Assignment2/task2.py
-  ```
-
-- Assignment 3 Task 1:
-  ```bash
-  python Assignment3/task1/task1.py
-  ```
-
-### Using the Models
-
-You can use the trained models for predictions by loading them with `pickle` or `joblib`. Here is an example of how to use a trained model for predictions:
-
-```python
-import joblib
-
-# Load the trained model
-model = joblib.load('path/to/model.pkl')
-
-# Make predictions
-predictions = model.predict(data)
-```
 
 ## Tasks and Models
 
@@ -113,13 +77,9 @@ predictions = model.predict(data)
   - `Assignment3/task2/logistic_reg_expression_model.pkl`
   - `Assignment3/task2/logistic_reg_name_model.pkl`
 
-## Datasets and Models
+## Models
 
-The repository includes various datasets and models used in the project:
-
-- **Datasets**:
-  - `Assignment2/linear_regression_model.pkl`
-  - `Assignment3/task1/best_model.pkl`
+The repository includes various models used in the project:
 
 - **Models**:
   - `Assignment2/linear_regression_model.pkl`
